@@ -642,95 +642,86 @@ document.addEventListener('click', function(e) {
 });
 </script>
 <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ef5558f7810c49329caed0202f5f2d8d&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
-
-  <!-- ═══════════════════════════════════ -->
-<!-- 💖 BROTHER SECTION + IMAGES -->
+<!-- ═══════════════════════════════════ -->
+<!-- 💖 BROTHER SECTION -->
 <!-- ═══════════════════════════════════ -->
 
 <style>
   .brother-section {
-    padding: 20px 15px;
-    text-align: center;
+    padding: 24px 16px;
     font-family: Arial, sans-serif;
+    text-align: center;
   }
 
-  .brother-images {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-
-  .brother-images img {
-    width: 48%;
-    max-height: 240px;
-    border-radius: 12px;
-    object-fit: contain; /* ✅ NO CROPPING */
-    background: #f2f2f2;
-  }
-
+  /* Top Profile Section */
   .brother-card {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
     justify-content: center;
-    margin-top: 10px;
+    margin-bottom: 18px;
   }
 
   .brother-card img {
-    width: 55px;
-    height: 55px;
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
     border: 2px solid #C4748C;
-    object-fit: cover; /* circle ke liye ok */
-  }
-
-  .brother-text {
-    font-size: 13px;
-    color: #444;
-    max-width: 320px;
-    margin: 12px auto;
-    line-height: 1.6;
+    object-fit: cover;
+    margin-bottom: 10px;
   }
 
   .crafted {
-    font-size: 14px;
+    font-size: 16px;
     color: #C4748C;
     font-weight: 600;
   }
 
-  @media (max-width: 600px) {
-    .brother-images {
-      flex-direction: column;
+  .from-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  /* Message */
+  .brother-text {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* Small screen fine-tuning */
+  @media (max-width: 400px) {
+    .brother-card img {
+      width: 75px;
+      height: 75px;
     }
 
-    .brother-images img {
-      width: 100%;
-      max-height: none;
-    }
-
-    .brother-card {
-      flex-direction: column;
+    .brother-text {
+      font-size: 13px;
     }
   }
 </style>
-  <!-- 💖 BROTHER PHOTO + TEXT -->
+
+<div class="brother-section">
+
+  <!-- 💖 PROFILE -->
   <div class="brother-card">
     <img src="https://i.ibb.co/hJKQKtV3/image.jpg" 
          alt="Younger Brother"
          onerror="this.src='https://via.placeholder.com/100?text=Bro'">
 
-    <div>
-      <div class="crafted">Crafted with Love ❤️</div>
-      <div style="font-size:11px;color:#666;">From Younger Brother</div>
-    </div>
+    <div class="crafted">Crafted with Love ❤️</div>
+    <div class="from-text">From Younger Brother</div>
   </div>
-    <!-- 💌 MESSAGE -->
+
+  <!-- 💌 MESSAGE -->
   <div class="brother-text">
-    Dear Didi,<br>
+    Dear Didi,<br><br>
     From childhood memories to this beautiful new beginning,  
     watching you step into this phase fills my heart with pride and joy.  
-    
     You’ve always been my guide, my strength, and my safe place.  
     Today, as you start this new journey, I wish you endless love, happiness,  
     and a lifetime of togetherness.<br><br>
@@ -738,19 +729,8 @@ document.addEventListener('click', function(e) {
     No matter where life takes us,  
     I’ll always be your little brother ❤️
   </div>
-<div class="brother-section">
 
-  <!-- 🔥 TWO IMAGES -->
-  <div class="brother-images">
-    <img src="https://i.ibb.co/Xr8PmDfg/image.jpg" 
-         alt="Memory 1"
-         onerror="this.src='https://via.placeholder.com/300x200?text=Memory+1'">
-
-    <img src="https://i.ibb.co/9HKk5H8T/image.jpg" 
-         alt="Memory 2"
-         onerror="this.src='https://via.placeholder.com/300x200?text=Memory+2'">
-  </div>
-
+</div>
 
 
 </div>
