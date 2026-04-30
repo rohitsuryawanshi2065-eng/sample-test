@@ -555,6 +555,282 @@
 
   </section>
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reveal Scratch</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #faf7f2;
+}
+
+/* SECTION */
+.reveal-section {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+/* CONFETTI */
+#confettiCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* CONTENT */
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+/* TEXT */
+.title h2 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.title h3 {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* SCRATCH CARDS */
+.scratch-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.scratch-card {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.scratch-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ANIMATIONS */
+.fade-transition {
+    transition: opacity 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.success-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+    margin-top: 40px;
+}
+
+.success-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .scratch-card {
+        width: 90px;
+        height: 90px;
+        font-size: 20px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<section class="reveal-section">
+
+<canvas id="confettiCanvas"></canvas>
+
+<div class="content">
+
+    <div id="instruction-header" class="fade-transition">
+        <p>Scratch all three circles to continue</p>
+    </div>
+
+    <div class="title">
+        <h2>Reveal</h2>
+        <h3>SCRATCH TO DISCOVER THE DATE</h3>
+    </div>
+
+    <div class="scratch-wrapper">
+
+        <div class="scratch-card">
+            <span>09</span>
+            <canvas class="scratch-canvas" id="scratch1"></canvas>
+        </div>
+
+        <div class="scratch-card">
+            <span>May</span>
+            <canvas class="scratch-canvas" id="scratch2"></canvas>
+        </div>
+
+        <div class="scratch-card">
+            <span>2026</span>
+            <canvas class="scratch-canvas" id="scratch3"></canvas>
+        </div>
+
+    </div>
+
+    <div id="success-text" class="success-text">
+        <h2>We're getting married! 💍</h2>
+    </div>
+
+</div>
+</section>
+
+<script>
+let completedCards = 0;
+const totalCards = 3;
+
+/* SCRATCH LOGIC */
+function initScratchCard(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    // GOLD LAYER
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, "#d4af37");
+    gradient.addColorStop(1, "#f6e27a");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    let isDrawing = false;
+    let isComplete = false;
+
+    function scratch(e) {
+        if (!isDrawing || isComplete) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        ctx.arc(x, y, 15, 0, Math.PI * 2);
+        ctx.fill();
+
+        checkCompletion();
+    }
+
+    function checkCompletion() {
+        const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        let cleared = 0;
+
+        for (let i = 3; i < pixels.length; i += 40) {
+            if (pixels[i] < 128) cleared++;
+        }
+
+        const percent = (cleared / (pixels.length / 40)) * 100;
+
+        if (percent > 50 && !isComplete) {
+            isComplete = true;
+            canvas.style.opacity = "0";
+            completedCards++;
+
+            if (completedCards === totalCards) {
+                onAllScratched();
+            }
+        }
+    }
+
+    canvas.addEventListener("mousedown", () => isDrawing = true);
+    canvas.addEventListener("mouseup", () => isDrawing = false);
+    canvas.addEventListener("mouseleave", () => isDrawing = false);
+    canvas.addEventListener("mousemove", scratch);
+
+    canvas.addEventListener("touchstart", () => isDrawing = true);
+    canvas.addEventListener("touchend", () => isDrawing = false);
+    canvas.addEventListener("touchmove", scratch);
+}
+
+/* INIT */
+["scratch1", "scratch2", "scratch3"].forEach(initScratchCard);
+
+/* SUCCESS */
+function onAllScratched() {
+    document.getElementById("instruction-header").classList.add("fade-out");
+    document.getElementById("success-text").classList.add("visible");
+    startConfetti();
+}
+
+/* CONFETTI */
+const canvas = document.getElementById("confettiCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+function startConfetti() {
+    for (let i = 0; i < 120; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 4,
+            d: Math.random() * 10
+        });
+    }
+    animate();
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.y += p.d;
+        if (p.y > canvas.height) p.y = 0;
+    });
+
+    requestAnimationFrame(animate);
+}
+</script>
+
+</body>
+</html>
+```
+
+  
   <!-- ═══════════════════════════════════
        MEET THE COUPLE — Secret Garden Reveal
   ═══════════════════════════════════ -->
