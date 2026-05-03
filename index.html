@@ -1,49 +1,2656 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Test</title>
-    <link rel="stylesheet" href="styles.css">
+  <script type="application/json" id="wedding-config">
+    {
+      "rsvp": {
+        "mode": "whatsapp",
+        "btnText": "Message",
+        "heading": "Your Wishes to the Couple",
+        "subtext": "We've saved a seat for you — at our table, in our hearts, and under the sky. Come celebrate with us as we begin this new chapter together.",
+        "form_url": "",
+        "whatsapp": "",
+        "button_text": "Fill RSVP Form"
+      },
+      "music": {
+        "src": "",
+        "name": "",
+        "enabled": true
+      },
+      "story": {
+        "show": false,
+        "tags": [],
+        "storyMode": "tags",
+        "storyText": "",
+        "customHashtag": ""
+      },
+      "couple": {
+        "date": "2026-05-09",
+        "bride": "Chanchal",
+        "groom": "Prasad",
+        "venue": "Bhakti Shakti Magal Karyalaya, Latur",
+        "hashtag": "",
+        "whatsapp": "",
+        "nameOrder": "bride_first"
+      },
+      "events": [{
+        "id": "mehendi",
+        "date": "",
+        "desc": "An afternoon of henna artistry, folk music, and the scent of marigold.",
+        "icon": "https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-ico-mehendi-x-v01.webp",
+        "name": "Mehendi",
+        "time": "",
+        "emoji": "🪷",
+        "mapsLink": ""
+      }, {
+        "id": "haldi",
+        "date": "2026-05-08",
+        "desc": "Golden hues, saffron paste, and laughter filling the morning air.",
+        "icon": "https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-ico-haldi-x-v01.webp",
+        "name": "Haldi",
+        "time": "18:25",
+        "emoji": "🌼",
+        "venue": "Uti, Ausa, Latur",
+        "mapsLink": ""
+      }, {
+        "id": "shaadi",
+        "date": "2026-05-09",
+        "desc": "Seven vows, one lifetime — the ceremony that begins forever.",
+        "icon": "https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-ico-shaadi-x-v01.webp",
+        "name": "Marriage",
+        "time": "00:23",
+        "emoji": "🌸",
+        "venue": "Bhakti Shakti Mangal Karyalaya Khadgaon Ring Road Valmiki Nagar, Latur",
+        "mapsLink": "https://maps.app.goo.gl/ZQfY1o7cinXRRwXD6"
+      }],
+      "invite": {
+        "show": true,
+        "brideGF": "",
+        "brideGM": "",
+        "groomGF": "",
+        "groomGM": "",
+        "blessing": "With the blessings of the divine and the love of our families",
+        "brideFather": "Late Shri Nagesh Suryawanshi",
+        "brideMother": "Smt. Sudha Nagesh Suryawanshi",
+        "groomFather": "Mr Nanasaheb Mane",
+        "groomMother": "Mrs Vanmala Nanasaheb Mane",
+        "parentsOrder": "bride_first",
+        "showGrandparents": false
+      },
+      "gallery": {
+        "show": true,
+        "layout": "4",
+        "photos": ["https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777478324591-0.jpeg", "https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777532807772-1.jpeg", "https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777532817055-2.jpeg", "https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777478348346-3.jpeg"]
+      },
+      "typography": {
+        "rsvp": "M",
+        "events": "M",
+        "footer": "M",
+        "parents": "M",
+        "applyToAll": false,
+        "coupleNames": "M",
+        "weddingDate": "M",
+        "thingsToKnow": "M",
+        "meetTheCouple": "M"
+      },
+      "thingsToKnow": [{
+        "id": "venue",
+        "label": "Venue",
+        "value": "https://share.google/2NG755WU32Aik1rGr"
+      }],
+      "showThingsToKnow": true,
+      "calendarUrls": {
+        "google": "https://calendar.google.com/calendar/render?action=TEMPLATE\u0026text=Chanchal%20weds%20Prasad\u0026dates=20260509/20260510\u0026location=Bhakti%20Shakti%20Magal%20Karyalaya%2C%20Latur",
+        "apple": "data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260509%0ADTEND:20260510%0ASUMMARY:Chanchal%20weds%20Prasad%0ALOCATION:Bhakti%20Shakti%20Magal%20Karyalaya%2C%20Latur%0AEND:VEVENT%0AEND:VCALENDAR"
+      }
+    }
+  </script>
+  <script>
+    window.__WEDDING_CONFIG__ = JSON.parse(document.getElementById('wedding-config').textContent);
+  </script>
+  <script>
+    (function() {
+      var bride = 'Chanchal';
+      var groom = 'Prasad';
+      var date = '9 May 2026';
+
+      function updatePreloader() {
+        // Names in preloader
+        var n1 = document.querySelector('.pl-n1');
+        var n2 = document.querySelector('.pl-n2');
+        if (n1) n1.textContent = bride;
+        if (n2) n2.textContent = groom;
+        // Names in hero copy
+        var hb = document.querySelector('.hc-bride');
+        var hg = document.querySelector('.hc-groom');
+        if (hb) hb.textContent = bride;
+        if (hg) hg.textContent = groom;
+        // Fallback: replace any leaf text still reading the placeholder names
+        document.querySelectorAll('*').forEach(function(el) {
+          if (el.children.length === 0 && el.textContent.trim() === 'Priya') el.textContent = bride;
+          if (el.children.length === 0 && el.textContent.trim() === 'Arjun') el.textContent = groom;
+        });
+        // Date injection
+        if (date) {
+          var found = false;
+          document.querySelectorAll('*').forEach(function(el) {
+            if (el.children.length === 0) {
+              var txt = el.textContent.trim();
+              if (
+                txt === '14 February 2025' || txt === '14 FEBRUARY 2025' ||
+                el.classList.contains('pre-date') ||
+                el.classList.contains('preloader-date') ||
+                el.classList.contains('pl-date')
+              ) {
+                el.textContent = date;
+                found = true;
+              }
+            }
+          });
+          // No existing date element found — insert one after .pl-names
+          if (!found) {
+            var container = document.querySelector('.pl-names') || document.querySelector('.pl-content');
+            if (container && !container.querySelector('.pl-date-injected')) {
+              var dateEl = document.createElement('span');
+              dateEl.className = 'pl-date-injected';
+              dateEl.textContent = date;
+              dateEl.style.cssText = 'display:block;font-family:"DM Sans",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(196,152,90,0.75);margin-top:10px;';
+              container.appendChild(dateEl);
+            }
+          }
+        }
+      }
+      updatePreloader();
+      document.addEventListener('DOMContentLoaded', updatePreloader);
+    })();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof applyWeddingConfig === 'function') {
+        applyWeddingConfig();
+      }
+    });
+  </script>
+  <base href="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chanchal &amp; Prasad · ShaadiPath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Parisienne&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/style.css">
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Welcome to the Sample Test</h1>
-        </header>
-        <div class="events">
-            <div class="event-card">
-                <h2>Event 1</h2>
-                <p>Description for event 1.</p>
-            </div>
-            <div class="event-card">
-                <h2>Event 2</h2>
-                <p>Description for event 2.</p>
-            </div>
-            <div class="event-card">
-                <h2>Event 3</h2>
-                <p>Description for event 3.</p>
-            </div>
-        </div>
+
+<body class="intro-active">
+
+  <!-- ═══════════════════════════════════
+     INTRO
+═══════════════════════════════════ -->
+  <section class="intro is-waiting" id="intro" aria-label="Opening scene" style="--px-bg-x: 0.00px; --px-bg-y: 0.00px; --px-jhm-x: 0.00px; --px-jhm-y: 0.00px; --px-flr-x: 0.00px; --px-flr-y: 0.00px; --px-dya-x: 0.00px; --px-dya-y: 0.00px;">
+
+    <!-- Background layers -->
+    <img class="intro-bg intro-bg-dark" id="introBgDark" alt="" aria-hidden="true" decoding="async" fetchpriority="high" src="assets/hero/pn-hro-bg-courtyard-dark-m-v03.webp">
+    <img class="intro-bg intro-bg-lit" id="introBgLit" alt="" aria-hidden="true" decoding="async" src="assets/hero/pn-hro-bg-courtyard-lit-m-v03.webp">
+
+    <!-- Glow system -->
+    <div class="intro-vignette" aria-hidden="true"></div>
+    <div class="intro-dark-vignette" aria-hidden="true"></div>
+    <div class="intro-warm-glow" aria-hidden="true"></div>
+    <div class="intro-jhoomer-glow" aria-hidden="true"></div>
+    <div class="intro-rose-scatter" aria-hidden="true"></div>
+
+    <!-- Particles (lit only) -->
+    <div class="intro-dust" id="introDust" aria-hidden="true">
+      <div class="dust-particle" style="width: 1.43807px; height: 1.43807px; left: 45.7261%; bottom: 35.9143%; animation-duration: 14.7362s; animation-delay: 6.05223s;"></div>
+      <div class="dust-particle" style="width: 1.03795px; height: 1.03795px; left: 22.7806%; bottom: 16.9969%; animation-duration: 9.24385s; animation-delay: 0.138074s;"></div>
+      <div class="dust-particle" style="width: 3.34422px; height: 3.34422px; left: 30.9676%; bottom: 62.1282%; animation-duration: 11.8608s; animation-delay: 1.75357s;"></div>
+      <div class="dust-particle" style="width: 2.93217px; height: 2.93217px; left: 71.5115%; bottom: 50.6171%; animation-duration: 15.9987s; animation-delay: 5.35527s;"></div>
+      <div class="dust-particle" style="width: 1.33123px; height: 1.33123px; left: 40.3121%; bottom: 50.3988%; animation-duration: 14.2727s; animation-delay: 3.89839s;"></div>
+      <div class="dust-particle" style="width: 1.2235px; height: 1.2235px; left: 39.3327%; bottom: 39.1261%; animation-duration: 9.31769s; animation-delay: 6.89781s;"></div>
+      <div class="dust-particle" style="width: 2.44939px; height: 2.44939px; left: 23.6308%; bottom: 59.9752%; animation-duration: 8.75486s; animation-delay: 6.28635s;"></div>
+      <div class="dust-particle" style="width: 2.45008px; height: 2.45008px; left: 24.4516%; bottom: 17.7663%; animation-duration: 13.4179s; animation-delay: 2.41223s;"></div>
+      <div class="dust-particle" style="width: 2.44487px; height: 2.44487px; left: 26.8683%; bottom: 26.4269%; animation-duration: 11.8247s; animation-delay: 5.04734s;"></div>
+      <div class="dust-particle" style="width: 1.72875px; height: 1.72875px; left: 29.2211%; bottom: 33.7729%; animation-duration: 9.62118s; animation-delay: 1.20957s;"></div>
+      <div class="dust-particle" style="width: 2.11025px; height: 2.11025px; left: 42.6367%; bottom: 11.2657%; animation-duration: 7.31404s; animation-delay: 2.57152s;"></div>
+      <div class="dust-particle" style="width: 3.10628px; height: 3.10628px; left: 39.0798%; bottom: 50.5372%; animation-duration: 16.9273s; animation-delay: 4.60281s;"></div>
+      <div class="dust-particle" style="width: 2.08175px; height: 2.08175px; left: 76.6939%; bottom: 17.6436%; animation-duration: 14.9668s; animation-delay: 3.90729s;"></div>
+      <div class="dust-particle" style="width: 1.33972px; height: 1.33972px; left: 46.0749%; bottom: 32.7953%; animation-duration: 15.4812s; animation-delay: 0.474175s;"></div>
+      <div class="dust-particle" style="width: 1.16004px; height: 1.16004px; left: 43.01%; bottom: 11.5145%; animation-duration: 8.26241s; animation-delay: 7.435s;"></div>
+      <div class="dust-particle" style="width: 3.60327px; height: 3.60327px; left: 68.1089%; bottom: 26.9322%; animation-duration: 15.8674s; animation-delay: 2.05008s;"></div>
+      <div class="dust-particle" style="width: 3.74331px; height: 3.74331px; left: 25.3633%; bottom: 47.2769%; animation-duration: 10.8101s; animation-delay: 2.61586s;"></div>
+      <div class="dust-particle" style="width: 3.78308px; height: 3.78308px; left: 32.5474%; bottom: 16.1052%; animation-duration: 14.1146s; animation-delay: 2.76802s;"></div>
+      <div class="dust-particle" style="width: 1.03301px; height: 1.03301px; left: 49.2675%; bottom: 62.0682%; animation-duration: 8.67483s; animation-delay: 5.98001s;"></div>
+      <div class="dust-particle" style="width: 3.04288px; height: 3.04288px; left: 43.7723%; bottom: 63.9984%; animation-duration: 9.72935s; animation-delay: 4.94991s;"></div>
+      <div class="dust-particle" style="width: 2.7133px; height: 2.7133px; left: 63.9515%; bottom: 26.3972%; animation-duration: 11.2422s; animation-delay: 0.960964s;"></div>
+      <div class="dust-particle" style="width: 3.51303px; height: 3.51303px; left: 68.9531%; bottom: 36.8403%; animation-duration: 16.162s; animation-delay: 4.57944s;"></div>
+      <div class="dust-particle" style="width: 1.40284px; height: 1.40284px; left: 40.3353%; bottom: 54.1611%; animation-duration: 10.8713s; animation-delay: 7.59758s;"></div>
+      <div class="dust-particle" style="width: 3.75319px; height: 3.75319px; left: 74.1546%; bottom: 37.1844%; animation-duration: 16.6802s; animation-delay: 3.00785s;"></div>
+      <div class="dust-particle" style="width: 2.7052px; height: 2.7052px; left: 35.1944%; bottom: 42.7168%; animation-duration: 15.3475s; animation-delay: 5.98534s;"></div>
+      <div class="dust-particle" style="width: 3.49916px; height: 3.49916px; left: 38.6999%; bottom: 53.7906%; animation-duration: 10.7106s; animation-delay: 4.02071s;"></div>
+      <div class="dust-particle" style="width: 2.593px; height: 2.593px; left: 24.8512%; bottom: 38.5164%; animation-duration: 16.5458s; animation-delay: 1.52306s;"></div>
+      <div class="dust-particle" style="width: 2.65526px; height: 2.65526px; left: 37.7535%; bottom: 33.7073%; animation-duration: 7.42755s; animation-delay: 7.95362s;"></div>
+      <div class="dust-particle" style="width: 2.91516px; height: 2.91516px; left: 45.1503%; bottom: 65.0894%; animation-duration: 8.90833s; animation-delay: 6.65032s;"></div>
+      <div class="dust-particle" style="width: 1.39514px; height: 1.39514px; left: 71.6604%; bottom: 57.1658%; animation-duration: 16.3404s; animation-delay: 7.75028s;"></div>
+      <div class="dust-particle" style="width: 2.15601px; height: 2.15601px; left: 48.2565%; bottom: 17.7054%; animation-duration: 14.9382s; animation-delay: 6.26873s;"></div>
+      <div class="dust-particle" style="width: 1.55852px; height: 1.55852px; left: 54.1163%; bottom: 24.0787%; animation-duration: 10.8373s; animation-delay: 3.11379s;"></div>
     </div>
-    <style>
-        body {
+    <div class="intro-petals" id="introPetals" aria-hidden="true">
+      <div class="petal" style="left: 15.2167%; bottom: 1.64303%; width: 7.39206px; height: 4.58308px; animation-duration: 20.1263s; animation-delay: 2.36721s;"></div>
+      <div class="petal" style="left: 41.577%; bottom: 13.1738%; width: 9.20624px; height: 5.70787px; animation-duration: 10.7338s; animation-delay: 5.70493s;"></div>
+      <div class="petal" style="left: 71.7546%; bottom: 5.72032%; width: 5.79398px; height: 3.59227px; animation-duration: 22.5897s; animation-delay: 1.31082s;"></div>
+      <div class="petal" style="left: 66.1588%; bottom: 12.1494%; width: 9.42704px; height: 5.84477px; animation-duration: 20.1706s; animation-delay: 4.52518s;"></div>
+      <div class="petal" style="left: 46.3464%; bottom: 2.71269%; width: 7.48993px; height: 4.64376px; animation-duration: 15.1382s; animation-delay: 4.25186s;"></div>
+      <div class="petal" style="left: 80.3949%; bottom: 2.72599%; width: 7.66334px; height: 4.75127px; animation-duration: 19.4485s; animation-delay: 4.84114s;"></div>
+      <div class="petal" style="left: 89.7352%; bottom: 15.2181%; width: 9.77422px; height: 6.06001px; animation-duration: 18.7301s; animation-delay: 6.62955s;"></div>
+      <div class="petal" style="left: 8.25565%; bottom: 9.51158%; width: 10.7375px; height: 6.65725px; animation-duration: 12.1891s; animation-delay: 4.53618s;"></div>
+      <div class="petal" style="left: 44.5257%; bottom: 5.89734%; width: 10.3815px; height: 6.43654px; animation-duration: 10.8337s; animation-delay: 5.40712s;"></div>
+      <div class="petal" style="left: 23.1115%; bottom: 3.56695%; width: 5.80788px; height: 3.60088px; animation-duration: 10.6948s; animation-delay: 7.08959s;"></div>
+      <div class="petal" style="left: 83.5721%; bottom: 2.19955%; width: 7.98582px; height: 4.95121px; animation-duration: 11.1079s; animation-delay: 6.74416s;"></div>
+      <div class="petal" style="left: 15.5061%; bottom: 11.304%; width: 6.05595px; height: 3.75469px; animation-duration: 20.2617s; animation-delay: 1.87557s;"></div>
+      <div class="petal" style="left: 75.5386%; bottom: 2.09757%; width: 7.90026px; height: 4.89816px; animation-duration: 15.4908s; animation-delay: 3.79325s;"></div>
+      <div class="petal" style="left: 93.7381%; bottom: 0.780936%; width: 5.10804px; height: 3.16699px; animation-duration: 21.7438s; animation-delay: 3.63983s;"></div>
+      <div class="petal" style="left: 11.0043%; bottom: 5.77907%; width: 6.42302px; height: 3.98227px; animation-duration: 22.9507s; animation-delay: 3.65452s;"></div>
+      <div class="petal" style="left: 74.2964%; bottom: 3.30502%; width: 10.2588px; height: 6.36047px; animation-duration: 14.5422s; animation-delay: 9.25743s;"></div>
+      <div class="petal" style="left: 64.1322%; bottom: 14.0087%; width: 11.4891px; height: 7.12322px; animation-duration: 22.0524s; animation-delay: 0.731156s;"></div>
+      <div class="petal" style="left: 65.0457%; bottom: 13.4096%; width: 7.09937px; height: 4.40161px; animation-duration: 17.8694s; animation-delay: 2.32967s;"></div>
+    </div>
+
+    <!-- Floral clusters — bottom corners, lit only -->
+    <img class="intro-floral-left" id="introFloralLeft" alt="" aria-hidden="true" decoding="async" src="assets/hero/pn-shr-mot-floral-bush-cluster-x-v01.webp">
+    <img class="intro-floral-right" id="introFloralRight" alt="" aria-hidden="true" decoding="async" src="assets/hero/pn-shr-mot-floral-bush-cluster-x-v01.webp">
+
+    <!-- Diyas — arch gate floor, lit only -->
+    <div class="diya-wrap diya-left" id="diyaWrapLeft">
+      <img class="diya-img" id="introDiyaLeft" alt="" aria-hidden="true" decoding="async" src="assets/hero/pn-shr-mot-diya-glow-x-v01.webp">
+      <div class="diya-floor-glow"></div>
+    </div>
+    <div class="diya-wrap diya-right" id="diyaWrapRight">
+      <img class="diya-img" id="introDiyaRight" alt="" aria-hidden="true" decoding="async" src="assets/hero/pn-shr-mot-diya-glow-x-v01.webp">
+      <div class="diya-floor-glow"></div>
+    </div>
+
+    <!-- Jhoomer — lit only -->
+    <img class="intro-jhoomer" id="introJhoomer" alt="" aria-hidden="true" decoding="async" src="assets/shared/pn-shr-mot-jhoomer-hanging-x-v01.webp">
+
+    <!-- Rope anchor glow -->
+    <div class="rope-anchor-glow" aria-hidden="true"></div>
+
+    <!-- ROPE — the hero interaction -->
+    <button class="rope-button rope-ready rope-idle" id="ropeButton" type="button" aria-label="Pull the rope to light our celebration">
+      <img class="rope-img" id="ropeImg" alt="" aria-hidden="true" draggable="false" src="assets/hero/pn-hro-el-rope-hemp-pull-x-v01.webp">
+      <span class="rope-halo" aria-hidden="true"></span>
+    </button>
+
+    <!-- Instruction (dark state) -->
+    <div class="intro-instruction" id="introInstruction" aria-hidden="true">
+      <div class="pull-ritual-cue"></div>
+      <span class="pull-label">Pull to light us up</span>
+    </div>
+    <div class="pull-feedback" id="pullFeedback" aria-hidden="true">A little deeper to wake the lights</div>
+
+    <!-- Text reveal -->
+    <div class="intro-reveal" id="introReveal" aria-live="polite">
+      <h1 class="names intro-reveal-item" id="introNames">
+        <span class="word">Chanchal</span> <span class="word amp-wrap"><span class="amp">&amp;</span></span><br><span class="word">Prasad</span>
+      </h1>
+      <div class="ornament intro-reveal-item" id="introOrnament">
+        <span></span><i></i><span></span>
+      </div>
+      <p class="date  intro-reveal-item" id="introDate">9 · May · 2026</p>
+      <p class="venue intro-reveal-item" id="introVenue">Bhakti Shakti Magal Karyalaya, Latur</p>
+    </div>
+
+    <!-- Lotus CTA -->
+    <div class="lotus-cta-group" id="lotusCTAGroup">
+      <button class="lotus-button" id="lotusButton" type="button" aria-label="Tap the lotus to join us">
+        <img class="lotus-glow-burst" id="lotusGlowBurst" alt="" aria-hidden="true" decoding="async" src="assets/hero/pn-fx-ovl-lotus-glow-burst-x-v01.webp">
+        <img class="lotus-icon-img" id="lotusIconImg" alt="" aria-hidden="true" draggable="false" src="assets/hero/pn-rvl-btn-lotus-closed-x-v01.webp">
+        <img class="lotus-open-img" id="lotusOpenImg" alt="" aria-hidden="true" draggable="false" src="assets/hero/pn-rvl-btn-lotus-open-x-v01.webp">
+      </button>
+      <p class="lotus-cta-label" id="lotusButtonText" aria-hidden="true">Tap the lotus to join us</p>
+    </div>
+
+    <button class="skip-intro" id="skipIntro" type="button">skip intro</button>
+  </section>
+
+  <!-- ═══════════════════════════════════
+     PAGE SHELL
+═══════════════════════════════════ -->
+  <main class="page-shell">
+    <section class="section invite-section" id="invite" aria-labelledby="inviteTitle">
+
+      <!-- Layer 1 — Pichwai background, ken-burns -->
+      <div class="invite-bg" aria-hidden="true"></div>
+
+      <!-- Layer 2 — Dark vignette -->
+      <div class="invite-vignette" aria-hidden="true"></div>
+
+      <!-- Rose petal shower, spawned from bird positions -->
+      <canvas class="invite-petals" id="invitePetals" aria-hidden="true"></canvas>
+
+      <!-- Birds — spritesheet, two birds chasing left→right -->
+      <div class="invite-birds" id="inviteBirds" aria-hidden="true">
+        <div class="inv-bird inv-bird--a" id="invBirdA"></div>
+        <div class="inv-bird inv-bird--b" id="invBirdB"></div>
+      </div>
+
+      <!-- Layer 3 — Arch PNG as floating frame (card-wrap contains ONLY the arch) -->
+      <div class="invite-card-wrap">
+        <img class="invite-arch-frame" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/invite/pn-inv-fr-card-m-v01.webp" alt="" aria-hidden="true" decoding="async" draggable="false">
+      </div>
+
+      <!-- Layer 4 — Text, absolutely positioned within the section -->
+      <div class="invite-text-content">
+
+        <!-- Grandparents blessing — shown when HAS_GRANDPARENTS = true in script.js -->
+        <div class="inv-blessing" style="display: none;">
+          <p class="inv-overline">With the blessings of</p>
+          <p>Late Smt. Kamla Kapoor &amp; Shri Harish Kapoor</p>
+          <p>Smt. Leela Sharma &amp; Shri Mohan Sharma</p>
+        </div>
+
+        <!-- Alternative top block — shown when HAS_GRANDPARENTS = false in script.js -->
+        <div class="inv-blessing-alt">
+          <p class="inv-blessing-alt-line1">With the blessings of the divine</p>
+          <p class="inv-blessing-alt-line2">and the love of our families</p>
+          <p class="inv-blessing-alt-line3">Together we invite you to celebrate</p>
+        </div>
+
+        <p class="inv-kicker" style="display: none;">Together with their families</p>
+
+        <img class="inv-lotus-div" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/invite/pn-inv-div-lotus-divider-x-v01.webp" alt="" aria-hidden="true" decoding="async">
+
+        <h2 class="inv-names" id="inviteTitle">Chanchal <span class="inv-amp">&amp;</span> Prasad</h2>
+
+        <img class="inv-lotus-div" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/invite/pn-inv-div-lotus-divider-x-v01.webp" alt="" aria-hidden="true" decoding="async">
+
+        <div class="inv-parents">
+          <p>D/O Late Shri Nagesh Suryawanshi &amp; Smt. Sudha Nagesh Suryawanshi</p>
+          <p>S/O Mr Nanasaheb Mane &amp; Mrs Vanmala Nanasaheb Mane</p>
+        </div>
+
+        <p class="inv-occasion">invite you to celebrate their wedding</p>
+
+        <div class="inv-meta">
+          <p class="inv-date">9 May 2026</p>
+          <p class="inv-venue">Bhakti Shakti Magal Karyalaya, Latur</p>
+        </div>
+
+      </div>
+
+      <!-- CTA outside the arch — floats on the Pichwai background -->
+      <div class="inv-cta">
+        <a class="inv-btn" href="#events">View Events</a>
+      </div>
+
+    </section>
+
+    <section class="section events-section" id="events" aria-labelledby="evtTitle">
+
+      <!-- Background gradient -->
+      <div class="evt-bg" aria-hidden="true"></div>
+      <!-- Rose watercolor texture at very low opacity -->
+      <div class="evt-tex-overlay" aria-hidden="true"></div>
+      <!-- Starfield canvas — open night sky feel -->
+      <canvas class="evt-stars" id="evtStars" aria-hidden="true" width="390" height="2472"></canvas>
+      <div class="evt-bg-vignette" aria-hidden="true"></div>
+      <div class="evt-birds" id="evtBirds" aria-hidden="true"><span class="evt-bird" style="--bird-top: 7%; --bird-w: 24px; --bird-dur: 30s; --bird-del: 0s; --bird-drift: -16px;"></span><span class="evt-bird" style="--bird-top: 13%; --bird-w: 16px; --bird-dur: 38s; --bird-del: -11s; --bird-drift: -8px;"></span><span class="evt-bird" style="--bird-top: 19%; --bird-w: 28px; --bird-dur: 24s; --bird-del: -20s; --bird-drift: -24px;"></span><span class="evt-bird" style="--bird-top: 10%; --bird-w: 14px; --bird-dur: 44s; --bird-del: -6s; --bird-drift: -10px;"></span><span class="evt-bird" style="--bird-top: 25%; --bird-w: 20px; --bird-dur: 28s; --bird-del: -33s; --bird-drift: -18px;"></span><span class="evt-bird" style="--bird-top: 5%; --bird-w: 18px; --bird-dur: 35s; --bird-del: -17s; --bird-drift: -12px;"></span></div>
+
+      <!-- Jhoomer — top center, pendulum sway -->
+      <div class="evt-jhoomer-wrap" aria-hidden="true">
+        <div class="evt-jhoomer-inner">
+          <img class="evt-jhoomer-img" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-jhoomer-hanging-x-v01.webp" alt="" decoding="async" loading="lazy" draggable="false">
+        </div>
+      </div>
+
+      <!-- Floral corners — proper individual assets, no mirror hack -->
+      <img class="evt-corner evt-corner--tl" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-div-floral-corner-top-left-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+      <img class="evt-corner evt-corner--tr" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-div-floral-corner-top-right-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- Floral border — bottom edge -->
+      <div class="evt-floral-border evt-floral-border--bot" aria-hidden="true">
+        <img src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-div-floral-border-horizontal-x-v01.webp" alt="" decoding="async" loading="lazy" draggable="false">
+      </div>
+
+      <!-- Warm ambient glow -->
+      <div class="evt-glow-mid" aria-hidden="true"></div>
+
+      <!-- ── LEFT COLUMN (top → bottom) ── -->
+      <!-- Banana leaf — upper left -->
+      <img class="evt-bananaleaf" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/Banaleaf.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- Peacock — mid left, faces inward naturally -->
+      <img class="evt-peacock" id="evtPeacock" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-peacock-main-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- Diya — lower left -->
+      <img class="evt-diya evt-diya--l" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/Diya.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- ── RIGHT COLUMN (top → bottom) ── -->
+      <!-- Chhatri — upper right -->
+      <img class="evt-chhatri" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-chhatri-ornate-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- Elephant — mid right, mirrored to face inward -->
+      <img class="evt-elephant" id="evtElephant" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-elephant-main-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- Diya — lower right -->
+      <img class="evt-diya evt-diya--r" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/Diya.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- ── BOTTOM CENTRE ── -->
+      <!-- Cow — peeking from below, centred -->
+      <img class="evt-cow" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-cow-main-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <!-- Floating lotus accents — subtle, two positions only -->
+      <img class="evt-lotus evt-lotus--1" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-lotus-flower-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+      <img class="evt-lotus evt-lotus--2" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-lotus-flower-x-v01.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" draggable="false">
+
+      <html lang="en">
+
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vishu Weds Kavya - Wedding Invitation</title>
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Google Fonts for Typography -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <!-- Imported Playfair Display, Pixelify Sans, and Great Vibes (Calligraphy) -->
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Pixelify+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+
+        <!-- Custom Styles -->
+        <style>
+          body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            p ing: 0;
+            background-color: #fcf9f2;
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+          }
+
+          .font-pixel {
+            font-family: 'Pixelify Sans', sans-serif;
+          }
+
+          .font-calligraphy {
+            font-family: 'Great Vibes', cursive;
+            text-transform: none !important;
+          }
+
+          .title-text {
+            color: #4a5155;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+          }
+
+          .weds-text {
+            color: #5c6368;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+          }
+
+          .reveal-item {
+            opacity: 0;
+            transform: scale(0.3);
+            transition-property: opacity, transform;
+            transition-duration: 0.8s;
+            transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: opacity, transform;
+          }
+
+          .reveal-item.is-visible {
+            opacity: 1;
+            transform: scale(1);
+          }
+
+          @keyframes flameFlicker {
+            0% {
+              filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.5)) brightness(0.95);
+            }
+
+            25% {
+              filter: drop-shadow(0 0 30px rgba(255, 220, 0, 1)) brightness(1.2);
+            }
+
+            50% {
+              filter: drop-shadow(0 0 15px rgba(255, 180, 0, 0.6)) brightness(1.05);
+            }
+
+            75% {
+              filter: drop-shadow(0 0 35px rgba(255, 210, 0, 1.1)) brightness(1.25);
+            }
+
+            100% {
+              filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.5)) brightness(0.95);
+            }
+          }
+
+          .animate-lamp-glow {
+            animation: flameFlicker 4s infinite ease-in-out;
+          }
+
+          @keyframes windSway {
+
+            0%,
+            100% {
+              transform: rotate(-1deg) translateY(0);
+            }
+
+            50% {
+              transform: rotate(1deg) translateY(2px);
+            }
+          }
+
+          .animate-garland-sway {
+            transform-origin: top center;
+            animation: windSway 5s ease-in-out infinite;
+            will-change: transform;
+          }
+        </style>
+        <style>
+          *,
+          ::before,
+          ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+          }
+
+          ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+          }
+
+          /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+          *,
+          ::after,
+          ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+          }
+
+          ::after,
+          ::before {
+            --tw-content: ''
+          }
+
+          :host,
+          html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+          }
+
+          body {
+            margin: 0;
+            line-height: inherit
+          }
+
+          hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+          }
+
+          abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+          }
+
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-size: inherit;
+            font-weight: inherit
+          }
+
+          a {
+            color: inherit;
+            text-decoration: inherit
+          }
+
+          b,
+          strong {
+            font-weight: bolder
+          }
+
+          code,
+          kbd,
+          pre,
+          samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+          }
+
+          small {
+            font-size: 80%
+          }
+
+          sub,
+          sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+          }
+
+          sub {
+            bottom: -.25em
+          }
+
+          sup {
+            top: -.5em
+          }
+
+          table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+          }
+
+          button,
+          input,
+          optgroup,
+          select,
+          textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+          }
+
+          button,
+          select {
+            text-transform: none
+          }
+
+          button,
+          input:where([type=button]),
+          input:where([type=reset]),
+          input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+          }
+
+          :-moz-focusring {
+            outline: auto
+          }
+
+          :-moz-ui-invalid {
+            box-shadow: none
+          }
+
+          progress {
+            vertical-align: baseline
+          }
+
+          ::-webkit-inner-spin-button,
+          ::-webkit-outer-spin-button {
+            height: auto
+          }
+
+          [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+          }
+
+          ::-webkit-search-decoration {
+            -webkit-appearance: none
+          }
+
+          ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+          }
+
+          summary {
+            display: list-item
+          }
+
+          blockquote,
+          dd,
+          dl,
+          figure,
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          hr,
+          p,
+          pre {
+            margin: 0
+          }
+
+          fieldset {
+            margin: 0;
+            padding: 0
+          }
+
+          legend {
+            padding: 0
+          }
+
+          menu,
+          ol,
+          ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+          }
+
+          dialog {
+            padding: 0
+          }
+
+          textarea {
+            resize: vertical
+          }
+
+          input::placeholder,
+          textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+          }
+
+          [role=button],
+          button {
+            cursor: pointer
+          }
+
+          :disabled {
+            cursor: default
+          }
+
+          audio,
+          canvas,
+          embed,
+          iframe,
+          img,
+          object,
+          svg,
+          video {
+            display: block;
+            vertical-align: middle
+          }
+
+          img,
+          video {
+            max-width: 100%;
+            height: auto
+          }
+
+          [hidden]:where(:not([hidden=until-found])) {
+            display: none
+          }
+
+          .pointer-events-none {
+            pointer-events: none
+          }
+
+          .fixed {
+            position: fixed
+          }
+
+          .absolute {
+            position: absolute
+          }
+
+          .relative {
+            position: relative
+          }
+
+          .inset-0 {
+            inset: 0px
+          }
+
+          .inset-x-0 {
+            left: 0px;
+            right: 0px
+          }
+
+          .bottom-0 {
+            bottom: 0px
+          }
+
+          .bottom-6 {
+            bottom: 1.5rem
+          }
+
+          .left-0 {
+            left: 0px
+          }
+
+          .left-1\/2 {
+            left: 50%
+          }
+
+          .right-0 {
+            right: 0px
+          }
+
+          .right-6 {
+            right: 1.5rem
+          }
+
+          .top-0 {
+            top: 0px
+          }
+
+          .z-0 {
+            z-index: 0
+          }
+
+          .z-10 {
+            z-index: 10
+          }
+
+          .z-20 {
+            z-index: 20
+          }
+
+          .z-30 {
+            z-index: 30
+          }
+
+          .z-40 {
+            z-index: 40
+          }
+
+          .z-50 {
+            z-index: 50
+          }
+
+          .-my-4 {
+            margin-top: -1rem;
+            margin-bottom: -1rem
+          }
+
+          .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+          }
+
+          .my-4 {
+            margin-top: 1rem;
+            margin-bottom: 1rem
+          }
+
+          .mb-12 {
+            margin-bottom: 3rem
+          }
+
+          .mb-16 {
+            margin-bottom: 4rem
+          }
+
+          .mb-2 {
+            margin-bottom: 0.5rem
+          }
+
+          .mb-3 {
+            margin-bottom: 0.75rem
+          }
+
+          .mb-4 {
+            margin-bottom: 1rem
+          }
+
+          .mb-6 {
+            margin-bottom: 1.5rem
+          }
+
+          .mb-8 {
+            margin-bottom: 2rem
+          }
+
+          .ml-1 {
+            margin-left: 0.25rem
+          }
+
+          .block {
+            display: block
+          }
+
+          .flex {
+            display: flex
+          }
+
+          .grid {
+            display: grid
+          }
+
+          .hidden {
+            display: none
+          }
+
+          .h-14 {
+            height: 3.5rem
+          }
+
+          .h-24 {
+            height: 6rem
+          }
+
+          .h-32 {
+            height: 8rem
+          }
+
+          .h-\[100svh\] {
+            height: 100svh
+          }
+
+          .h-\[120\%\] {
+            height: 120%
+          }
+
+          .h-\[180px\] {
+            height: 180px
+          }
+
+          .h-auto {
+            height: auto
+          }
+
+          .h-full {
+            height: 100%
+          }
+
+          .min-h-\[100svh\] {
+            min-height: 100svh
+          }
+
+          .min-h-\[50svh\] {
+            min-height: 50svh
+          }
+
+          .w-1\/3 {
+            width: 33.333333%
+          }
+
+          .w-1\/5 {
+            width: 20%
+          }
+
+          .w-14 {
+            width: 3.5rem
+          }
+
+          .w-24 {
+            width: 6rem
+          }
+
+          .w-\[65\%\] {
+            width: 65%
+          }
+
+          .w-\[90\%\] {
+            width: 90%
+          }
+
+          .w-\[95\%\] {
+            width: 95%
+          }
+
+          .w-full {
+            width: 100%
+          }
+
+          .max-w-2xl {
+            max-width: 42rem
+          }
+
+          .max-w-5xl {
+            max-width: 64rem
+          }
+
+          .max-w-6xl {
+            max-width: 72rem
+          }
+
+          .max-w-\[1200px\] {
+            max-width: 1200px
+          }
+
+          .max-w-\[300px\] {
+            max-width: 300px
+          }
+
+          .max-w-\[320px\] {
+            max-width: 320px
+          }
+
+          .max-w-lg {
+            max-width: 32rem
+          }
+
+          .-translate-x-1\/2 {
+            --tw-translate-x: -50%;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+          }
+
+          .-translate-y-\[15\%\] {
+            --tw-translate-y: -15%;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+          }
+
+          .-translate-y-\[35\%\] {
+            --tw-translate-y: -35%;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+          }
+
+          .translate-y-2 {
+            --tw-translate-y: 0.5rem;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+          }
+
+          .translate-y-48 {
+            --tw-translate-y: 12rem;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+          }
+
+          .scale-x-\[-1\] {
+            --tw-scale-x: -1;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+          }
+
+          .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr))
+          }
+
+          .flex-col {
+            flex-direction: column
+          }
+
+          .items-start {
+            align-items: flex-start
+          }
+
+          .items-end {
+            align-items: flex-end
+          }
+
+          .items-center {
+            align-items: center
+          }
+
+          .justify-start {
+            justify-content: flex-start
+          }
+
+          .justify-end {
+            justify-content: flex-end
+          }
+
+          .justify-center {
+            justify-content: center
+          }
+
+          .gap-1 {
+            gap: 0.25rem
+          }
+
+          .gap-12 {
+            gap: 3rem
+          }
+
+          .space-y-3> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.75rem * var(--tw-space-y-reverse))
+          }
+
+          .overflow-hidden {
+            overflow: hidden
+          }
+
+          .overflow-visible {
+            overflow: visible
+          }
+
+          .rounded-full {
+            border-radius: 9999px
+          }
+
+          .bg-\[\#91c6ea\] {
+            --tw-bg-opacity: 1;
+            background-color: rgb(145 198 234 / var(--tw-bg-opacity, 1))
+          }
+
+          .bg-\[\#cb2c51\] {
+            --tw-bg-opacity: 1;
+            background-color: rgb(203 44 81 / var(--tw-bg-opacity, 1))
+          }
+
+          .bg-\[\#e1969a\] {
+            --tw-bg-opacity: 1;
+            background-color: rgb(225 150 154 / var(--tw-bg-opacity, 1))
+          }
+
+          .bg-\[\#e48397\] {
+            --tw-bg-opacity: 1;
+            background-color: rgb(228 131 151 / var(--tw-bg-opacity, 1))
+          }
+
+          .bg-cover {
+            background-size: cover
+          }
+
+          .bg-top {
+            background-position: top
+          }
+
+          .object-contain {
+            object-fit: contain
+          }
+
+          .object-cover {
+            object-fit: cover
+          }
+
+          .object-bottom {
+            object-position: bottom
+          }
+
+          .object-left-top {
+            object-position: left top
+          }
+
+          .object-top {
+            object-position: top
+          }
+
+          .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem
+          }
+
+          .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+          }
+
+          .pb-16 {
+            padding-bottom: 4rem
+          }
+
+          .pb-24 {
+            padding-bottom: 6rem
+          }
+
+          .pb-32 {
+            padding-bottom: 8rem
+          }
+
+          .pt-12 {
+            padding-top: 3rem
+          }
+
+          .pt-20 {
+            padding-top: 5rem
+          }
+
+          .pt-40 {
+            padding-top: 10rem
+          }
+
+          .pt-48 {
+            padding-top: 12rem
+          }
+
+          .pt-\[15vh\] {
+            padding-top: 15vh
+          }
+
+          .pt-\[4vh\] {
+            padding-top: 4vh
+          }
+
+          .text-center {
+            text-align: center
+          }
+
+          .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
+          }
+
+          .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem
+          }
+
+          .text-5xl {
+            font-size: 3rem;
+            line-height: 1
+          }
+
+          .text-7xl {
+            font-size: 4.5rem;
+            line-height: 1
+          }
+
+          .text-base {
+            font-size: 1rem;
+            line-height: 1.5rem
+          }
+
+          .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+          }
+
+          .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+          }
+
+          .font-bold {
+            font-weight: 700
+          }
+
+          .font-medium {
+            font-weight: 500
+          }
+
+          .font-semibold {
+            font-weight: 600
+          }
+
+          .uppercase {
+            text-transform: uppercase
+          }
+
+          .leading-tight {
+            line-height: 1.25
+          }
+
+          .tracking-\[0\.15em\] {
+            letter-spacing: 0.15em
+          }
+
+          .tracking-\[0\.25em\] {
+            letter-spacing: 0.25em
+          }
+
+          .tracking-\[0\.2em\] {
+            letter-spacing: 0.2em
+          }
+
+          .tracking-wide {
+            letter-spacing: 0.025em
+          }
+
+          .tracking-widest {
+            letter-spacing: 0.1em
+          }
+
+          .text-\[\#8b2d35\] {
+            --tw-text-opacity: 1;
+            color: rgb(139 45 53 / var(--tw-text-opacity, 1))
+          }
+
+          .text-\[\#a51a24\] {
+            --tw-text-opacity: 1;
+            color: rgb(165 26 36 / var(--tw-text-opacity, 1))
+          }
+
+          .text-\[\#c11c2e\] {
+            --tw-text-opacity: 1;
+            color: rgb(193 28 46 / var(--tw-text-opacity, 1))
+          }
+
+          .text-\[\#e33f6b\] {
+            --tw-text-opacity: 1;
+            color: rgb(227 63 107 / var(--tw-text-opacity, 1))
+          }
+
+          .text-\[\#eed578\] {
+            --tw-text-opacity: 1;
+            color: rgb(238 213 120 / var(--tw-text-opacity, 1))
+          }
+
+          .text-\[\#fcf0cc\] {
+            --tw-text-opacity: 1;
+            color: rgb(252 240 204 / var(--tw-text-opacity, 1))
+          }
+
+          .antialiased {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+          }
+
+          .opacity-95 {
+            opacity: 0.95
+          }
+
+          .shadow-2xl {
+            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+          }
+
+          .shadow-md {
+            --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+          }
+
+          .ring-4 {
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)
+          }
+
+          .ring-\[\#cb2c51\]\/30 {
+            --tw-ring-color: rgb(203 44 81 / 0.3)
+          }
+
+          .drop-shadow-2xl {
+            --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+          }
+
+          .drop-shadow-lg {
+            --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+          }
+
+          .drop-shadow-md {
+            --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+          }
+
+          .drop-shadow-sm {
+            --tw-drop-shadow: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+          }
+
+          .will-change-transform {
+            will-change: transform
+          }
+
+          .hover\:bg-\[\#a82241\]:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(168 34 65 / var(--tw-bg-opacity, 1))
+          }
+
+          @media (min-width: 640px) {
+            .sm\:mb-10 {
+              margin-bottom: 2.5rem
+            }
+
+            .sm\:mb-12 {
+              margin-bottom: 3rem
+            }
+
+            .sm\:mb-16 {
+              margin-bottom: 4rem
+            }
+
+            .sm\:mb-20 {
+              margin-bottom: 5rem
+            }
+
+            .sm\:h-48 {
+              height: 12rem
+            }
+
+            .sm\:h-56 {
+              height: 14rem
+            }
+
+            .sm\:h-\[220px\] {
+              height: 220px
+            }
+
+            .sm\:w-1\/4 {
+              width: 25%
+            }
+
+            .sm\:w-28 {
+              width: 7rem
+            }
+
+            .sm\:w-\[45\%\] {
+              width: 45%
+            }
+
+            .sm\:w-\[85\%\] {
+              width: 85%
+            }
+
+            .sm\:translate-y-4 {
+              --tw-translate-y: 1rem;
+              transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+            }
+
+            .sm\:gap-2 {
+              gap: 0.5rem
+            }
+
+            .sm\:px-4 {
+              padding-left: 1rem;
+              padding-right: 1rem
+            }
+
+            .sm\:px-8 {
+              padding-left: 2rem;
+              padding-right: 2rem
+            }
+
+            .sm\:pt-20 {
+              padding-top: 5rem
+            }
+
+            .sm\:pt-48 {
+              padding-top: 12rem
+            }
+
+            .sm\:pt-64 {
+              padding-top: 16rem
+            }
+
+            .sm\:pt-\[20vh\] {
+              padding-top: 20vh
+            }
+
+            .sm\:pt-\[6vh\] {
+              padding-top: 6vh
+            }
+
+            .sm\:text-2xl {
+              font-size: 1.5rem;
+              line-height: 2rem
+            }
+
+            .sm\:text-4xl {
+              font-size: 2.25rem;
+              line-height: 2.5rem
+            }
+
+            .sm\:text-5xl {
+              font-size: 3rem;
+              line-height: 1
+            }
+
+            .sm\:text-6xl {
+              font-size: 3.75rem;
+              line-height: 1
+            }
+
+            .sm\:text-8xl {
+              font-size: 6rem;
+              line-height: 1
+            }
+
+            .sm\:text-lg {
+              font-size: 1.125rem;
+              line-height: 1.75rem
+            }
+
+            .sm\:text-xl {
+              font-size: 1.25rem;
+              line-height: 1.75rem
+            }
+          }
+
+          @media (min-width: 768px) {
+            .md\:my-6 {
+              margin-top: 1.5rem;
+              margin-bottom: 1.5rem
+            }
+
+            .md\:h-64 {
+              height: 16rem
+            }
+
+            .md\:h-72 {
+              height: 18rem
+            }
+
+            .md\:h-\[80\%\] {
+              height: 80%
+            }
+
+            .md\:w-1\/4 {
+              width: 25%
+            }
+
+            .md\:w-3\/4 {
+              width: 75%
+            }
+
+            .md\:w-36 {
+              width: 9rem
+            }
+
+            .md\:w-\[30\%\] {
+              width: 30%
+            }
+
+            .md\:w-\[70\%\] {
+              width: 70%
+            }
+
+            .md\:w-\[75\%\] {
+              width: 75%
+            }
+
+            .md\:w-auto {
+              width: auto
+            }
+
+            .md\:-translate-y-\[20\%\] {
+              --tw-translate-y: -20%;
+              transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+            }
+
+            .md\:grid-cols-3 {
+              grid-template-columns: repeat(3, minmax(0, 1fr))
+            }
+
+            .md\:gap-4 {
+              gap: 1rem
+            }
+
+            .md\:bg-center {
+              background-position: center
+            }
+
+            .md\:pt-16 {
+              padding-top: 4rem
+            }
+
+            .md\:pt-48 {
+              padding-top: 12rem
+            }
+
+            .md\:pt-64 {
+              padding-top: 16rem
+            }
+
+            .md\:pt-80 {
+              padding-top: 20rem
+            }
+
+            .md\:text-2xl {
+              font-size: 1.5rem;
+              line-height: 2rem
+            }
+
+            .md\:text-3xl {
+              font-size: 1.875rem;
+              line-height: 2.25rem
+            }
+
+            .md\:text-5xl {
+              font-size: 3rem;
+              line-height: 1
+            }
+
+            .md\:text-6xl {
+              font-size: 3.75rem;
+              line-height: 1
+            }
+
+            .md\:text-7xl {
+              font-size: 4.5rem;
+              line-height: 1
+            }
+
+            .md\:text-9xl {
+              font-size: 8rem;
+              line-height: 1
+            }
+
+            .md\:text-xl {
+              font-size: 1.25rem;
+              line-height: 1.75rem
+            }
+          }
+
+          @media (min-width: 1024px) {
+            .lg\:w-40 {
+              width: 10rem
+            }
+
+            .lg\:w-\[25\%\] {
+              width: 25%
+            }
+
+            .lg\:w-\[60\%\] {
+              width: 60%
+            }
+
+            .lg\:w-\[65\%\] {
+              width: 65%
+            }
+
+            .lg\:text-6xl {
+              font-size: 3.75rem;
+              line-height: 1
+            }
+
+            .lg\:text-7xl {
+              font-size: 4.5rem;
+              line-height: 1
+            }
+
+            .lg\:text-8xl {
+              font-size: 6rem;
+              line-height: 1
+            }
+
+            .lg\:text-\[10rem\] {
+              font-size: 10rem
+            }
+          }
+        </style>
+      </head>
+
+      <body class="antialiased">
+
+        <!-- Section 7: Final -->
+        <section class="relative w-full min-h-[100svh] bg-[#e1969a] flex flex-col items-center justify-end overflow-hidden z-40" style="background-image: url('https://framerusercontent.com/images/ZJuwYsHXk0HnRjJnd4JPA93gI60.png?width=6172&amp;height=6172'); background-size: cover; background-position: center top; background-repeat: no-repeat;">
+          <div class="absolute top-0 inset-x-0 w-full z-10 animate-garland-sway">
+            <img src="https://framerusercontent.com/images/rRjOvPjTz2tlTxNt0USBngTEY.png?width=9936&amp;height=3784" alt="Garlands" class="w-full h-auto object-cover opacity-95">
+          </div>
+          <div class="relative w-full flex justify-center z-20 pt-40 md:pt-48">
+            <img src="https://framerusercontent.com/images/HkGtJk9wSnZmN9N451qy8p9vpeI.png?width=1451&amp;height=1451?width=1451&amp;height=1451" alt="Portrait" class="w-[95%] sm:w-[85%] md:w-[70%] lg:w-[60%] max-w-5xl h-auto drop-shadow-2xl">
+          </div>
+        </section>
+
+        <!-- Audio & UI -->
+        <audio id="bg-music" loop="" autoplay="">
+          <source src="https://theluxuryinvites.com/wp-content/uploads/2026/04/mangalyam_sathiya.mp3" type="audio/mpeg">
+        </audio>
+
+        <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-[#cb2c51] text-[#eed578] w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-[#a82241] ring-4 ring-[#cb2c51]/30">
+          <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="hidden ml-1">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="block">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+        </button>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const temple = document.getElementById('parallax-temple');
+            const car = document.getElementById('parallax-car');
+            window.addEventListener('scroll', () => {
+              let scrollY = window.scrollY;
+              // Hero temple parallax
+              if (temple) temple.style.transform = `translateY(${-scrollY * 0.35}px)`;
+              // Car motif parallax logic adjusted for lower shift
+              if (car) {
+                const rect = car.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > -100) {
+                  const viewportOffset = window.innerHeight - rect.top;
+                  // Increased starting point from 80 to 120 and adjusted movement factor
+                  car.style.transform = `translateY(${120 - (viewportOffset * 0.12)}px)`;
+                }
+              }
+            });
+            const revealObserver = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                else entry.target.classList.remove('is-visible');
+              });
+            }, {
+              threshold: 0.1
+            });
+            document.querySelectorAll('.reveal-item').forEach(item => revealObserver.observe(item));
+            const bgMusic = document.getElementById('bg-music');
+            const musicToggleBtn = document.getElementById('music-toggle');
+            const iconPlay = document.getElementById('icon-play');
+            const iconPause = document.getElementById('icon-pause');
+            let isPlaying = false;
+            const startAudioOnInteraction = () => {
+              if (isPlaying) return;
+              bgMusic.play().then(() => {
+                isPlaying = true;
+                iconPlay.classList.replace('block', 'hidden');
+                iconPause.classList.replace('hidden', 'block');
+              }).catch(() => {});
+            };
+            // Attempt to autoplay on load
+            const playPromise = bgMusic.play();
+            if (playPromise !== undefined) {
+              playPromise.then(_ => {
+                // Autoplay started successfully! Update UI.
+                isPlaying = true;
+                iconPlay.classList.replace('block', 'hidden');
+                iconPause.classList.replace('hidden', 'block');
+              }).catch(error => {
+                // Browser blocked autoplay. Listen for ANY interaction (scroll, click, touch) to start it instantly.
+                isPlaying = false;
+                document.addEventListener('click', startAudioOnInteraction, {
+                  once: true
+                });
+                document.addEventListener('touchstart', startAudioOnInteraction, {
+                  once: true
+                });
+                document.addEventListener('scroll', startAudioOnInteraction, {
+                  once: true
+                });
+              });
+            }
+            musicToggleBtn.addEventListener('click', (e) => {
+              // Prevent bubbling so it doesn't trigger the global interaction listener again unnecessarily
+              e.stopPropagation();
+              if (isPlaying) {
+                bgMusic.pause();
+                iconPlay.classList.replace('hidden', 'block');
+                iconPause.classList.replace('block', 'hidden');
+              } else {
+                bgMusic.play().catch(() => {});
+                iconPlay.classList.replace('block', 'hidden');
+                iconPause.classList.replace('hidden', 'block');
+              }
+              isPlaying = !isPlaying;
+            });
+          });
+        </script>
+
+        </style>
+
+        <div class="template-sticky-bar">
+          <a href="https://theluxuryinvites.com/cart/?add-to-cart=546" class="btn-gold-outline" target="_top">Add to Cart</a>
+
+          <a href="https://theluxuryinvites.com/checkout/?add-to-cart=546" class="btn-gold-solid" target="_top">Buy Now</a>
+        </div>
+        <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;dbb40e3b27694109914698e84f8a92c5&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+        <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;dbb40e3b27694109914698e84f8a92c5&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+      </body>
+
+      </html>
+
+      <!-- Section header — children animate in when parent enters view -->
+      <div class="evt-header reveal-item" id="evtHeader">
+        <p class="evt-eyebrow">Celebration Journey</p>
+        <h2 class="evt-title" id="evtTitle">Our Events</h2>
+        <img class="evt-divider" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-div-lotus-vine-x-v01.webp" alt="" aria-hidden="true" decoding="async">
+      </div>
+
+      <!-- Ceremonial journey — vine path + event cards -->
+      <div class="evt-journey">
+        <div class="evt-path-wrap" id="evtPathWrap" aria-hidden="true">
+          <img class="evt-path-vine" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-pth-ceremonial-vine-m-v01.webp" alt="" aria-hidden="true" decoding="async">
+        </div>
+        <div class="evt-stops" id="evtStops" role="list">
+          <article class="farman-stop farman-left" role="listitem" data-event="mehendi" data-farman-index="0">
+            <div class="farman-rolled-wrap" aria-hidden="true">
+              <img class="farman-rolled-img" src="assets/event/pn-evt-farman-rolled-x-v01.webp" alt="" draggable="false" decoding="async">
+            </div>
+            <div class="farman-open-wrap">
+              <img class="farman-parchment-img" src="assets/event/pn-evt-farman-open-x-v01.webp" alt="" aria-hidden="true" draggable="false" decoding="async">
+              <div class="farman-dust-layer" aria-hidden="true"></div>
+              <div class="farman-content" aria-label="Mehendi ceremony details">
+                <img class="farman-motif" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-ico-mehendi-x-v01.webp" alt="Mehendi motif" decoding="async">
+                <h3 class="farman-name">Mehendi</h3>
+                <div class="farman-rule" aria-hidden="true"></div>
+                <p class="farman-datetime"> · </p>
+                <p class="farman-venue">Bhakti Shakti Mangal Karyalaya Khadgaon Ring Road Valmiki Nagar, Latur</p>
+                <p class="farman-note">An afternoon of henna artistry, folk music, and the scent of marigold.</p>
+              </div>
+            </div>
+          </article>
+          <div class="farman-inter" aria-hidden="true"><svg width="88" height="18" viewBox="0 0 88 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="fgl" x1="0" y1="0" x2="32" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="rgba(216,169,87,0)"></stop>
+                  <stop offset="100%" stop-color="rgba(216,169,87,.48)"></stop>
+                </linearGradient>
+                <linearGradient id="fgr" x1="56" y1="0" x2="88" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="rgba(216,169,87,.48)"></stop>
+                  <stop offset="100%" stop-color="rgba(216,169,87,0)"></stop>
+                </linearGradient>
+              </defs>
+              <line x1="0" y1="9" x2="32" y2="9" stroke="url(#fgl)" stroke-width="1"></line>
+              <circle cx="37" cy="9" r="1.8" fill="rgba(216,169,87,.38)"></circle>
+              <circle cx="44" cy="9" r="3.2" fill="rgba(216,169,87,.58)"></circle>
+              <circle cx="51" cy="9" r="1.8" fill="rgba(216,169,87,.38)"></circle>
+              <line x1="56" y1="9" x2="88" y2="9" stroke="url(#fgr)" stroke-width="1"></line>
+            </svg></div>
+          <article class="farman-stop farman-right" role="listitem" data-event="haldi" data-farman-index="1">
+            <div class="farman-rolled-wrap" aria-hidden="true">
+              <img class="farman-rolled-img" src="assets/event/pn-evt-farman-rolled-x-v01.webp" alt="" draggable="false" decoding="async">
+            </div>
+            <div class="farman-open-wrap">
+              <img class="farman-parchment-img" src="assets/event/pn-evt-farman-open-x-v01.webp" alt="" aria-hidden="true" draggable="false" decoding="async">
+              <div class="farman-dust-layer" aria-hidden="true"></div>
+              <div class="farman-content" aria-label="Haldi ceremony details">
+                <img class="farman-motif" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-ico-haldi-x-v01.webp" alt="Haldi motif" decoding="async">
+                <h3 class="farman-name">Haldi</h3>
+                <div class="farman-rule" aria-hidden="true"></div>
+                <p class="farman-datetime">8 May 2026 · 18:25</p>
+                <p class="farman-venue">Uti, Ausa, Latur</p>
+                <p class="farman-note">Golden hues, saffron paste, and laughter filling the morning air.</p>
+              </div>
+            </div>
+          </article>
+          <div class="farman-inter farman-inter--lotus" aria-hidden="true"><img src="assets/invite/pn-inv-div-lotus-divider-x-v01.webp" alt="" decoding="async" loading="lazy"></div>
+          <article class="farman-stop farman-left farman-stop--main" role="listitem" data-event="shaadi" data-farman-index="2">
+            <div class="farman-rolled-wrap" aria-hidden="true">
+              <img class="farman-rolled-img" src="assets/event/pn-evt-farman-rolled-x-v01.webp" alt="" draggable="false" decoding="async">
+            </div>
+            <div class="farman-open-wrap">
+              <img class="farman-parchment-img" src="assets/event/pn-evt-farman-open-x-v01.webp" alt="" aria-hidden="true" draggable="false" decoding="async">
+              <div class="farman-dust-layer" aria-hidden="true"></div>
+              <div class="farman-content" aria-label="Marriage ceremony details">
+                <img class="farman-motif" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/event/pn-evt-ico-shaadi-x-v01.webp" alt="Marriage motif" decoding="async">
+                <h3 class="farman-name">Marriage</h3>
+                <div class="farman-rule" aria-hidden="true"></div>
+                <p class="farman-datetime">9 May 2026 · 00:23</p>
+                <p class="farman-venue">Bhakti Shakti Mangal Karyalaya Khadgaon Ring Road Valmiki Nagar, Latur</p>
+                <p class="farman-note">Seven vows, one lifetime — the ceremony that begins forever.</p><a class="farman-map" href="https://maps.app.goo.gl/ZQfY1o7cinXRRwXD6" target="_blank" rel="noreferrer" aria-label="Open Bhakti Shakti Mangal Karyalaya Khadgaon Ring Road Valmiki Nagar, Latur on Google Maps">
+                  <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:4px">
+                    <path d="M5.5 0C2.46 0 0 2.46 0 5.5c0 4.12 5.5 8.5 5.5 8.5S11 9.62 11 5.5C11 2.46 8.54 0 5.5 0Z" fill="currentColor" opacity=".72"></path>
+                    <circle cx="5.5" cy="5.5" r="2" fill="#fff" opacity=".88"></circle>
+                  </svg>Open in Maps</a>
+                <div class="farman-map-rule" aria-hidden="true"></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </section>
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Reveal Scratch</title>
+
+      <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: #faf7f2;
         }
-        .container {
-            padding: 20px;
+
+        /* SECTION */
+        .reveal-section {
+          position: relative;
+          text-align: center;
+          padding: 80px 20px;
+          overflow: hidden;
         }
-        .event-card {
-            border: 1px solid #ccc;
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f9f9f9;
+
+        /* CONFETTI */
+        #confettiCanvas {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
         }
-        img.decorative {
-            display: none;
+
+        /* CONTENT */
+        .content {
+          position: relative;
+          z-index: 2;
         }
-    </style>
+
+        /* TEXT */
+        .title h2 {
+          font-size: 48px;
+          margin: 10px 0;
+        }
+
+        .title h3 {
+          font-size: 12px;
+          letter-spacing: 2px;
+        }
+
+        /* SCRATCH CARDS */
+        .scratch-wrapper {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          margin-top: 40px;
+          flex-wrap: wrap;
+        }
+
+        .scratch-card {
+          position: relative;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .scratch-canvas {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+        /* ANIMATIONS */
+        .fade-transition {
+          transition: opacity 0.5s ease;
+        }
+
+        .fade-out {
+          opacity: 0;
+        }
+
+        .success-text {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: 0.6s ease;
+          margin-top: 40px;
+        }
+
+        .success-text.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* MOBILE */
+        @media (max-width: 480px) {
+          .scratch-card {
+            width: 90px;
+            height: 90px;
+            font-size: 20px;
+          }
+        }
+      </style>
+
+    </head>
+
+    <body>
+
+      <section class="reveal-section">
+
+        <canvas id="confettiCanvas"></canvas>
+
+        <div class="content">
+
+          <div id="instruction-header" class="fade-transition">
+            <p>Scratch all three circles to continue</p>
+          </div>
+
+          <div class="title">
+            <h2>Reveal</h2>
+            <h3>SCRATCH TO DISCOVER THE DATE</h3>
+          </div>
+
+          <div class="scratch-wrapper">
+
+            <div class="scratch-card">
+              <span>09</span>
+              <canvas class="scratch-canvas" id="scratch1"></canvas>
+            </div>
+
+            <div class="scratch-card">
+              <span>May</span>
+              <canvas class="scratch-canvas" id="scratch2"></canvas>
+            </div>
+
+            <div class="scratch-card">
+              <span>2026</span>
+              <canvas class="scratch-canvas" id="scratch3"></canvas>
+            </div>
+
+          </div>
+
+          <div id="success-text" class="success-text">
+            <h2>We're getting married! 💍</h2>
+          </div>
+
+        </div>
+      </section>
+
+      <script>
+        let completedCards = 0;
+        const totalCards = 3;
+        /* SCRATCH LOGIC */
+        function initScratchCard(canvasId) {
+          const canvas = document.getElementById(canvasId);
+          const ctx = canvas.getContext('2d');
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
+          // GOLD LAYER
+          const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+          gradient.addColorStop(0, "#d4af37");
+          gradient.addColorStop(1, "#f6e27a");
+          ctx.fillStyle = gradient;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          let isDrawing = false;
+          let isComplete = false;
+
+          function scratch(e) {
+            if (!isDrawing || isComplete) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+            const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.beginPath();
+            ctx.arc(x, y, 15, 0, Math.PI * 2);
+            ctx.fill();
+            checkCompletion();
+          }
+
+          function checkCompletion() {
+            const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let cleared = 0;
+            for (let i = 3; i < pixels.length; i += 40) {
+              if (pixels[i] < 128) cleared++;
+            }
+            const percent = (cleared / (pixels.length / 40)) * 100;
+            if (percent > 50 && !isComplete) {
+              isComplete = true;
+              canvas.style.opacity = "0";
+              completedCards++;
+              if (completedCards === totalCards) {
+                onAllScratched();
+              }
+            }
+          }
+          canvas.addEventListener("mousedown", () => isDrawing = true);
+          canvas.addEventListener("mouseup", () => isDrawing = false);
+          canvas.addEventListener("mouseleave", () => isDrawing = false);
+          canvas.addEventListener("mousemove", scratch);
+          canvas.addEventListener("touchstart", () => isDrawing = true);
+          canvas.addEventListener("touchend", () => isDrawing = false);
+          canvas.addEventListener("touchmove", scratch);
+        }
+        /* INIT */
+        ["scratch1", "scratch2", "scratch3"].forEach(initScratchCard);
+        /* SUCCESS */
+        function onAllScratched() {
+          document.getElementById("instruction-header").classList.add("fade-out");
+          document.getElementById("success-text").classList.add("visible");
+          startConfetti();
+        }
+        /* CONFETTI */
+        const canvas = document.getElementById("confettiCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
+
+        function startConfetti() {
+          for (let i = 0; i < 120; i++) {
+            particles.push({
+              x: Math.random() * canvas.width,
+              y: Math.random() * canvas.height,
+              r: Math.random() * 4,
+              d: Math.random() * 10
+            });
+          }
+          animate();
+        }
+
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+            p.y += p.d;
+            if (p.y > canvas.height) p.y = 0;
+          });
+          requestAnimationFrame(animate);
+        }
+      </script>
+
+    </body>
+
+    </html>
+    ```
+
+    <!-- ═══════════════════════════════════
+       MEET THE COUPLE — Secret Garden Reveal
+  ═══════════════════════════════════ -->
+    <section class="section cpl-section" id="couple" aria-labelledby="cplTitle" style="display: none;">
+
+      <!-- Background: Secret Garden painting -->
+      <div class="cpl-bg" aria-hidden="true"></div>
+      <!-- Soft vignette to blend top/bottom with adjacent sections -->
+      <div class="cpl-vignette" aria-hidden="true"></div>
+
+      <!-- Tree overlays — these part on scroll -->
+      <div class="cpl-tree cpl-tree--left" id="cplTreeLeft" aria-hidden="true" style="transform: translateX(0%);">
+        <img src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/meet_the_couple/pn-cpl-ovl-tree-left-m-v01.webp" alt="" decoding="async" draggable="false">
+      </div>
+      <div class="cpl-tree cpl-tree--right" id="cplTreeRight" aria-hidden="true" style="transform: translateX(0%);">
+        <img src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/meet_the_couple/pn-cpl-ovl-tree-right-m-v01.webp" alt="" decoding="async" draggable="false">
+      </div>
+
+      <!-- Content — revealed as trees part -->
+      <div class="cpl-content" id="cplContent">
+
+        <!-- Section header -->
+        <div class="cpl-header reveal-item" style="opacity: 0; transform: translateY(20px);">
+          <p class="cpl-eyebrow">A love story</p>
+          <h2 class="cpl-title" id="cplTitle">Meet the Couple</h2>
+          <div class="cpl-ornament" aria-hidden="true">
+            <span></span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="11" cy="8" rx="2.8" ry="5.8" fill="rgba(216,169,87,.78)" transform="rotate(0   11 11)"></ellipse>
+              <ellipse cx="11" cy="8" rx="2.8" ry="5.8" fill="rgba(216,169,87,.58)" transform="rotate(60  11 11)"></ellipse>
+              <ellipse cx="11" cy="8" rx="2.8" ry="5.8" fill="rgba(216,169,87,.58)" transform="rotate(-60 11 11)"></ellipse>
+              <ellipse cx="11" cy="8" rx="2.2" ry="4.8" fill="rgba(216,169,87,.38)" transform="rotate(120 11 11)"></ellipse>
+              <ellipse cx="11" cy="8" rx="2.2" ry="4.8" fill="rgba(216,169,87,.38)" transform="rotate(-120 11 11)"></ellipse>
+              <ellipse cx="11" cy="8" rx="1.8" ry="4.2" fill="rgba(216,169,87,.26)" transform="rotate(180 11 11)"></ellipse>
+              <circle cx="11" cy="11" r="2.0" fill="rgba(216,169,87,.88)"></circle>
+            </svg>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Story — one short paragraph -->
+        <div class="cpl-story reveal-item" style="opacity: 0; transform: translateY(20px);">
+          <p class="cpl-story-body"></p>
+          <!-- Personality tags — rendered by applyConfigPhase2 if story.tags exist -->
+          <div class="cpl-tags" id="cplTags" aria-hidden="true"></div>
+        </div>
+
+      </div><!-- /cpl-content -->
+
+    </section>
+
+    <section class="section gallery-section" id="gallery" aria-labelledby="galTitle">
+
+      <!-- Courtyard background -->
+      <div class="gal-bg" aria-hidden="true"></div>
+      <div class="gal-bg-vignette" aria-hidden="true"></div>
+
+      <!-- Section header -->
+      <div class="gal-header reveal-item">
+        <p class="eyebrow gal-eyebrow">Memories</p>
+        <h2 class="section-title gal-title" id="galTitle">Gallery Wall</h2>
+      </div>
+
+      <!-- Hanging frames wall — rendered by JS -->
+      <div class="gal-wall" id="galWall" role="list" aria-label="Photo gallery">
+        <div class="gal-frame-slot gal-slot-hero" role="listitem" style="transition-delay: 0ms;">
+          <div class="gal-frame-inner">
+            <div class="gal-frame-dust"></div>
+            <div class="gal-photo-wrap"><img class="gal-photo" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777478324591-0.jpeg" alt="Chanchal &amp; Prasad" decoding="async" loading="lazy"></div><img class="gal-frame-img" src="assets/gallery/pn-gal-fr-hanging-hero-arch-x-v01.webp" alt="" aria-hidden="true" decoding="async" draggable="false">
+          </div>
+          <p class="gal-frame-caption">Chanchal &amp; Prasad</p>
+        </div>
+        <div class="gal-frame-slot gal-slot-portrait" role="listitem" style="transition-delay: 160ms;">
+          <div class="gal-frame-inner">
+            <div class="gal-frame-dust"></div>
+            <div class="gal-photo-wrap"><img class="gal-photo" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777532807772-1.jpeg" alt="Chanchal &amp; Prasad" decoding="async" loading="lazy"></div><img class="gal-frame-img" src="assets/gallery/pn-gal-fr-hanging-portrait-x-v01.webp" alt="" aria-hidden="true" decoding="async" draggable="false">
+          </div>
+          <p class="gal-frame-caption">Chanchal &amp; Prasad</p>
+        </div>
+        <div class="gal-frame-slot gal-slot-landscape" role="listitem" style="transition-delay: 80ms;">
+          <div class="gal-frame-inner">
+            <div class="gal-frame-dust"></div>
+            <div class="gal-photo-wrap"><img class="gal-photo" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777532817055-2.jpeg" alt="Chanchal &amp; Prasad" decoding="async" loading="lazy"></div><img class="gal-frame-img" src="assets/gallery/pn-gal-fr-hanging-landscape-x-v01.webp" alt="" aria-hidden="true" decoding="async" draggable="false">
+          </div>
+          <p class="gal-frame-caption">Chanchal &amp; Prasad</p>
+        </div>
+        <div class="gal-frame-slot gal-slot-portrait" role="listitem" style="transition-delay: 240ms;">
+          <div class="gal-frame-inner">
+            <div class="gal-frame-dust"></div>
+            <div class="gal-photo-wrap"><img class="gal-photo" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/user-photos/82dfb70a-0783-4d9d-935e-ec823916a34e/1777478348346-3.jpeg" alt="Chanchal &amp; Prasad" decoding="async" loading="lazy"></div><img class="gal-frame-img" src="assets/gallery/pn-gal-fr-hanging-portrait-x-v01.webp" alt="" aria-hidden="true" decoding="async" draggable="false">
+          </div>
+          <p class="gal-frame-caption">Chanchal &amp; Prasad</p>
+        </div>
+      </div>
+
+      <!-- Lightbox overlay -->
+      <div class="gal-lightbox" id="galLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden="">
+        <button class="gal-lb-close" id="galLbClose" aria-label="Close photo viewer">✕</button>
+        <button class="gal-lb-prev" id="galLbPrev" aria-label="Previous photo">‹</button>
+        <button class="gal-lb-next" id="galLbNext" aria-label="Next photo">›</button>
+        <div class="gal-lb-inner">
+          <img class="gal-lb-img" id="galLbImg" alt="" decoding="async">
+          <p class="gal-lb-caption" id="galLbCaption"></p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section ttk-section" id="things" aria-labelledby="ttkTitle">
+      <div class="ttk-border-top" aria-hidden="true"></div>
+      <div class="ttk-border-bot" aria-hidden="true"></div>
+
+      <!-- Pichwai animal motif backdrop — purely decorative -->
+      <div class="ttk-motif-layer" aria-hidden="true">
+        <img class="ttk-motif ttk-motif--peacock" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-peacock-main-x-v01.webp" alt="" draggable="false">
+        <img class="ttk-motif ttk-motif--elephant ttk-motif--elephant-l" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-elephant-main-x-v01.webp" alt="" draggable="false">
+        <img class="ttk-motif ttk-motif--elephant ttk-motif--elephant-r" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/pn-shr-mot-elephant-main-x-v01.webp" alt="" draggable="false">
+        <img class="ttk-motif ttk-motif--cow" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/hero/pn-shr-mot-cow-main-x-v01.webp" alt="" draggable="false">
+      </div>
+
+      <div class="ttk-inner">
+        <div class="ttk-header reveal-item">
+          <span class="ttk-eyebrow">Guest Essentials</span>
+          <h2 class="ttk-heading" id="ttkTitle">Things to Know</h2>
+          <div class="ttk-ornament" aria-hidden="true">
+            <span></span>
+            <i></i>
+            <img class="ttk-lotus-divider" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/invite/pn-inv-div-lotus-divider-x-v01.webp" alt="" draggable="false" width="36" height="36">
+            <i></i>
+            <span></span>
+          </div>
+          <p class="ttk-subline">A few thoughtful details to help you celebrate in ease.</p>
+        </div>
+        <div class="ttk-grid ttk-grid--single" id="ttkGrid" role="list" aria-label="Guest information cards">
+          <article class="ttk-card" role="listitem" style="transition-delay: 0ms;">
+            <div class="ttk-card-icon-wrap"><img class="ttk-card-icon" src="assets/ttk/pn-ttk-ico-venue-x-v01.webp" alt="" decoding="async" loading="lazy" aria-hidden="true"></div>
+            <div class="ttk-card-rule" aria-hidden="true"></div>
+            <h3 class="ttk-card-title">Venue</h3>
+            <p class="ttk-card-body">https://share.google/2NG755WU32Aik1rGr</p><a class="ttk-card-link" href="https://share.google/2NG755WU32Aik1rGr" target="_blank" rel="noreferrer">↗ Open in Maps</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+       RSVP — Royal Night Finale
+  ═══════════════════════════════════ -->
+    <section class="section rsvp-section" id="rsvp" aria-labelledby="rsvpHeadline">
+
+      <!-- Background: palace courtyard at night -->
+      <div class="rsvp-bg" aria-hidden="true"></div>
+
+      <!-- Subtle readability veil — central gradient, lets bg breathe -->
+      <div class="rsvp-veil" aria-hidden="true"></div>
+
+      <!-- ── Live animation canvas: fireworks ── -->
+      <canvas class="rsvp-fireworks-canvas" id="rsvpFireworksCanvas" aria-hidden="true" width="390" height="1010"></canvas>
+
+      <!-- ── Ambient lamp glows (lower courtyard) ── -->
+      <div class="rsvp-lamp-glows" aria-hidden="true">
+        <span class="rsvp-lamp rsvp-lamp--l"></span>
+        <span class="rsvp-lamp rsvp-lamp--r"></span>
+        <span class="rsvp-lamp rsvp-lamp--cl"></span>
+        <span class="rsvp-lamp rsvp-lamp--cr"></span>
+      </div>
+
+      <!-- ── Lotus divider (from provided asset, top of section) ── -->
+      <div class="rsvp-lotus-top" aria-hidden="true">
+        <img src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/rsvp/pn-rsvp-div-finale-lotus-x-v01.webp" alt="" decoding="async" loading="lazy">
+      </div>
+
+      <!-- ── Content block ── -->
+      <div class="rsvp-content">
+
+        <p class="rsvp-eyebrow  rsvp-reveal" aria-hidden="true">JOIN THE CELEBRATION</p>
+
+        <h2 class="rsvp-headline rsvp-reveal" id="rsvpHeadline">
+          <span class="rsvp-hl-will"></span>
+          <span class="rsvp-hl-join">Your Wishes to the Couple</span>
+        </h2>
+
+        <p class="rsvp-body rsvp-reveal">We've saved a seat for you — at our table, in our hearts, and under the sky. Come celebrate with us as we begin this new chapter together.</p>
+
+        <!-- Primary CTA -->
+        <div class="rsvp-cta-wrap rsvp-reveal">
+          <a class="rsvp-btn-primary" href="https://wa.me/919923279371?text=Hi%20Chanchal%20%26%20Prasad!%20I'll%20be%20there%20to%20celebrate%20with%20you!" target="_blank" rel="noreferrer" aria-label="RSVP — Yes, I'll be there. Opens WhatsApp.">
+            <span class="rsvp-btn-inner">Message</span>
+          </a>
+          <p class="rsvp-helper">You'll be redirected to WhatsApp to confirm your attendance.</p>
+        </div>
+
+      </div><!-- /rsvp-content -->
+
+  </main>
+
+  <nav class="floating-menu" id="floatingMenu" aria-label="Navigation">
+
+    <!-- Circular Pichwai menu panel -->
+    <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Site navigation">
+      <div class="menu-bg-circle">
+        <img class="menu-bg-img" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/Menu_background.webp" alt="" aria-hidden="true" draggable="false">
+      </div>
+      <div class="menu-nav-header" aria-hidden="true">Navigation</div>
+      <div class="menu-lotus-top" aria-hidden="true">
+        <svg viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="28">
+          <ellipse cx="16" cy="14" rx="6" ry="5" fill="#d8a957" opacity=".7"></ellipse>
+          <ellipse cx="8" cy="12" rx="5" ry="4" fill="#d8a957" opacity=".5"></ellipse>
+          <ellipse cx="24" cy="12" rx="5" ry="4" fill="#d8a957" opacity=".5"></ellipse>
+        </svg>
+      </div>
+      <nav class="menu-links" aria-label="Page sections">
+        <a class="menu-link" href="#" id="menuHome">Home</a>
+        <div class="menu-divider" aria-hidden="true"></div>
+        <a class="menu-link" href="#invite">Invite</a>
+        <div class="menu-divider" aria-hidden="true"></div>
+        <a class="menu-link" href="#events">Events</a>
+        <div class="menu-divider" aria-hidden="true"></div>
+        <a class="menu-link" href="#couple">Meet the Couple</a>
+        <div class="menu-divider" aria-hidden="true"></div>
+        <a class="menu-link" href="#gallery">Gallery</a>
+        <div class="menu-divider" aria-hidden="true"></div>
+        <a class="menu-link" href="#things">Things to Know</a>
+        <div class="menu-divider" aria-hidden="true"></div>
+        <a class="menu-link" href="#rsvp">RSVP</a>
+      </nav>
+    </div>
+
+    <!-- Music toggle button (above compass) -->
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Play music" aria-pressed="false">
+      <img class="music-icon-img" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/music_icon.webp" alt="" aria-hidden="true" draggable="false">
+    </button>
+
+    <!-- Compass toggle button -->
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <img class="compass-img" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/shared/compass.webp" alt="Navigation compass" draggable="false">
+    </button>
+  </nav>
+
+  <!-- Background music — starts on rope pull -->
+  <audio id="bgMusic" src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/assets/song/Template_09.mp3" loop="" preload="auto"></audio>
+
+  <script src="https://pub-1cc0f6e993214be9a36badeeb631f4b6.r2.dev/templates/template09/script.js" defer=""></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var cfg = window.__WEDDING_CONFIG__;
+      if (!cfg || !cfg.calendarUrls) return;
+      // Read template's primary color from CSS variables
+      var style = getComputedStyle(document.documentElement);
+      var primaryBg = (style.getPropertyValue('--primary') ||
+        style.getPropertyValue('--gold') ||
+        style.getPropertyValue('--deep') ||
+        '#3D1E2E').trim();
+      var primaryText = (style.getPropertyValue('--ivory') || '#FAF3E8').trim();
+      var section = document.createElement('div');
+      section.style.cssText = 'text-align:center;padding:40px 20px;';
+      section.innerHTML =
+        '<div style="font-size:0.55rem;letter-spacing:0.22em;' +
+        'text-transform:uppercase;color:rgba(0,0,0,0.35);' +
+        'margin-bottom:20px;font-family:inherit;">Save the date</div>' +
+        '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">' +
+        '<a href="' + cfg.calendarUrls.google + '" target="_blank" rel="noopener" ' +
+        'style="display:inline-block;padding:12px 24px;' +
+        'background:transparent;' +
+        'border:1px solid ' + primaryBg + ';' +
+        'color:' + primaryBg + ';' +
+        'font-size:0.58rem;letter-spacing:0.16em;' +
+        'text-transform:uppercase;text-decoration:none;' +
+        'font-family:inherit;">Google Calendar</a>' +
+        '<a href="' + cfg.calendarUrls.apple + '" download="wedding.ics" ' +
+        'style="display:inline-block;padding:12px 24px;' +
+        'background:' + primaryBg + ';' +
+        'color:' + primaryText + ';' +
+        'font-size:0.58rem;letter-spacing:0.16em;' +
+        'text-transform:uppercase;text-decoration:none;' +
+        'font-family:inherit;">Apple / iCal</a>' +
+        '</div>';
+      var rsvp = document.getElementById('rsvp') ||
+        document.querySelector('[id*="rsvp"]') ||
+        document.querySelector('[class*="rsvp"]');
+      if (rsvp && rsvp.parentNode) {
+        rsvp.parentNode.insertBefore(section, rsvp.nextSibling);
+      } else {
+        document.body.appendChild(section);
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var cfg = window.__WEDDING_CONFIG__;
+      if (!cfg || !cfg.invite || cfg.invite.parentsOrder !== 'groom_first') return;
+      var bEl = document.getElementById('iBrideParents');
+      var gEl = document.getElementById('iGroomParents');
+      if (bEl) {
+        var em = bEl.closest('.fam-parents') && bEl.closest('.fam-parents').querySelector('em');
+        if (em) em.textContent = 'Son of';
+      }
+      if (gEl) {
+        var em2 = gEl.closest('.fam-parents') && gEl.closest('.fam-parents').querySelector('em');
+        if (em2) em2.textContent = 'Daughter of';
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('click', function(e) {
+      if (e.defaultPrevented) return;
+      var link = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      if (!href || href === '#') return;
+      var id = href.slice(1);
+      try {
+        id = decodeURIComponent(id);
+      } catch (_) {}
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', '#' + id);
+      }
+    });
+  </script>
+  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ef5558f7810c49329caed0202f5f2d8d&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+  <!-- ═══════════════════════════════════ -->
+  <!-- 💖 BROTHER SECTION -->
+  <!-- ═══════════════════════════════════ -->
+
+  <style>
+    .brother-section {
+      padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    /* Top Profile Section */
+    .brother-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .brother-card img {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 2px solid #C4748C;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .crafted {
+      font-size: 16px;
+      color: #C4748C;
+      font-weight: 600;
+    }
+
+    .from-text {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    /* Message */
+    .brother-text {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* Small screen fine-tuning */
+    @media (max-width: 400px) {
+      .brother-card img {
+        width: 75px;
+        height: 75px;
+      }
+
+      .brother-text {
+        font-size: 13px;
+      }
+    }
+  </style>
+
+  <div class="brother-section">
+
+    <!-- 💖 PROFILE -->
+    <div class="brother-card">
+      <img src="https://i.ibb.co/hJKQKtV3/image.jpg" alt="Younger Brother" onerror="this.src='https://via.placeholder.com/100?text=Bro'">
+
+      <div class="crafted">Crafted with Love ❤️</div>
+      <div class="from-text">From Younger Brother</div>
+    </div>
+
+    <!-- 💌 MESSAGE -->
+    <div class="brother-text">
+      Dear Didi,<br><br>
+      From childhood memories to this beautiful new beginning,
+      watching you step into this phase fills my heart with pride and joy.
+      You’ve always been my guide, my strength, and my safe place.
+      Today, as you start this new journey, I wish you endless love, happiness,
+      and a lifetime of togetherness.<br><br>
+
+      No matter where life takes us,
+      I’ll always be your little brother ❤️
+    </div>
+
+  </div>
+
+  </div>
+
 </body>
+
 </html>
